@@ -1,27 +1,27 @@
 # 📦 ShopFlow E-Commerce Microservices Platform
-### 📊 Interactive Software Requirements Specification (SRS) & Live Architecture Portal
+###  Interactive Software Requirements Specification (SRS) & Live Architecture Portal
 
 ShopFlow is an enterprise-grade, highly scalable microservices-based e-commerce ecosystem. This repository contains the **Interactive SRS Documentation & Simulator Portal**, a single-page React client designed to document, visualize, and simulate the system's microservice infrastructure, database schemas, REST APIs, and real-time stream telemetry.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-* **🗺️ Interactive System Architecture Map**
+* ** Interactive System Architecture Map**
   * Visualize the service topology featuring Spring Cloud Gateway, Netflix Eureka Registry, database boundaries, and client storefront connections.
   * Live inspector displaying metadata overview, exposed REST endpoint routes, and microservice `application.yml` YAML config files.
 
-* **🧪 Postman-Style API Sandbox Explorer**
+* ** Postman-Style API Sandbox Explorer**
   * Test backend endpoints using dynamic parameter, header, and payload tabs.
   * Injects synthetic JWT authorization scopes (*Guest, User, Admin*) to simulate gateway-level role security.
   * **Hybrid Fetch Client**: Directly executes HTTP requests if your local Spring Boot services are running on port `8080`, with automatic fallback to high-fidelity simulated responses.
 
-* **🗄️ Database-per-Service Schema Sandbox**
+* ** Database-per-Service Schema Sandbox**
   * Explores relational table designs (**PostgreSQL**) for transactional services and document structures (**MongoDB**) for telemetry data.
   * View field names, primary/foreign keys, and data types.
   * One-click copy for complete **SQL DDL scripts** and **JSON Validation schemas**.
 
-* **📈 Live Analytics Telemetry Simulator**
+* ** Live Analytics Telemetry Simulator**
   * Embedded stream engine showing continuous telemetry logs (Views, Clicks, Add-to-carts, Purchases).
   * Real-time charts rendered with **Recharts** (Stream rates area charts, action distribution donut charts).
   * Checkout Conversion Funnel analysis tracking shopping drop-offs.
