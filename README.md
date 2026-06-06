@@ -74,29 +74,64 @@ new-folder/
 ### Prerequisites
 * **Node.js** (v18 or higher recommended)
 * **npm** (v9 or higher)
+* **Java SDK 17** (for compiling and executing backend services)
+* **Apache Maven** (for dependency resolution and module builds)
+* **Docker / Docker Compose** (Optional, for containerized deployments)
 
 ### Installation & Run
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/Rgopi143/Java-first-project-based-on-the-microservices.git
-   cd Java-first-project-based-on-the-microservices
-   ```
+#### 1. Frontend Client Storefront (SRS Portal)
+Navigate to the root workspace directory:
 
-2. **Install Dependencies**
+1. **Install Node Dependencies**
    ```bash
    npm install
    ```
-
-3. **Start the Development Server**
+2. **Start Frontend Dev Server**
    ```bash
    npm run dev
    ```
-   Open your browser and navigate to: **[http://localhost:5173](http://localhost:5173)**
+   Open your browser at: **[http://localhost:5173](http://localhost:5173)**
 
-4. **Build for Production**
+#### 2. Backend Spring Boot Microservices
+Navigate to the `backend-microservices` subdirectory:
+```bash
+cd backend-microservices
+```
+
+1. **Build and Install Maven Modules**
+   Compile and package all sub-modules (Eureka, API Gateway, Auth, Catalog, Order) in order:
    ```bash
-   npm run build
+   mvn clean install
+   ```
+
+2. **Launch Services Individually (Development Mode)**
+   Run the following Maven plugin commands to start each service in a separate terminal:
+   * **Eureka Discovery Server** (Port 8761):
+     ```bash
+     mvn spring-boot:run -pl eureka-server
+     ```
+   * **API Gateway Service** (Port 8080):
+     ```bash
+     mvn spring-boot:run -pl api-gateway
+     ```
+   * **Auth & Profile Service** (Port 8081):
+     ```bash
+     mvn spring-boot:run -pl auth-service
+     ```
+   * **Product Catalog Service** (Port 8082):
+     ```bash
+     mvn spring-boot:run -pl catalog-service
+     ```
+   * **Order Management Service** (Port 8083):
+     ```bash
+     mvn spring-boot:run -pl order-service
+     ```
+
+3. **Launch Services in Containerized Sandbox (Alternative)**
+   If you have Docker running, spin up the entire backend database & service cluster in one command:
+   ```bash
+   docker-compose up --build
    ```
 
 ---
